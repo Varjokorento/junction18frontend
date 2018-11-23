@@ -27,7 +27,7 @@ state= {
       this.fetchData().then(
           res => {
               this.setState({
-                  userId: res.data.title
+                  userId: res.data.id
               })
           }
       )
@@ -37,8 +37,6 @@ state= {
     return (
       <div>
         <h1>View1</h1>
-        <hr/>
-        <p>World is filled with data</p>
         <p>{this.state.userId}</p>
         <button className="btn btn-primary" onClick={this.fetchInfo}>Click me</button>
           {this.state.isExtraInfoShown ? (

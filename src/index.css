@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 100px;
+}
+
+body {
+  background-color: lightcyan;
+}
+.custom {
+  margin-top: 50px;
+  background-color: lightblue;
+  border-radius: 10px;
+}

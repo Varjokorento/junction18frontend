@@ -30,7 +30,8 @@ incrementButton = () => {
     return (
    
     <div className="container">
-    <h1 className="text-center margin-bottom">Title of App </h1>
+    <h1 className="text-center margin-bottom">Mekelinin katu projekti</h1>
+    <div className="custom">
     <div class="control-group">
           <div className="container">
           <div className="row">  
@@ -46,6 +47,7 @@ incrementButton = () => {
           <div className="col">        
           <MapContainer/>
           </div>
+            </div>
             </div>
             </div>
             </div>
