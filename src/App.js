@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import DataPiece from './components/datapiece';
+import DataPiece2 from './components/DataPiece2';
+import DataPiece3 from './components/DataPiece3';
+import DataPiece4 from './components/DataPiece4';
+
+import MapContainer from './components/MapContainer';
 import './App.css';
 
 class App extends Component {
@@ -23,27 +28,32 @@ incrementButton = () => {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-         <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <p>Hello world!></p>
-          <ul>
-            <p>{this.state.number}</p>
-            <li>Here data1</li>
-            <li>Here data2</li>
-            {this.state.dataisShown ? (
-              <DataPiece/>
-            ):(
-              null
-            )}
-            <button onClick={this.incrementButton}>Click me</button>
-          </ul>
-        </header>
-      </div>
+   
+    <div className="container">
+    <h1 className="text-center margin-bottom">Title of App </h1>
+    <div class="control-group">
+          <div className="container">
+          <div className="row">  
+          <div className="col">        
+          <DataPiece2/>
+          </div>
+          <div className="col">        
+          <DataPiece3/>
+          </div>
+          <div className="col">        
+          <DataPiece4/>
+          </div>
+          <div className="col">        
+          <MapContainer/>
+          </div>
+            </div>
+            </div>
+            </div>
+            </div>
     );
+ 
   }
+ 
 }
 
 export default App;
