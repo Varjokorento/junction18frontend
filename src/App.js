@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import DataPiece from './components/datapiece';
+import TextNode from './components/TextNode';
 import DataPiece2 from './components/DataPiece2';
-import DataPiece3 from './components/DataPiece3';
-import DataPiece4 from './components/DataPiece4';
+import SmileyForm from './components/SmileyForm';
+import Analysis from './components/Analysis';
+import axios from 'axios';
 
-import MapContainer from './components/MapContainer';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,8 @@ class App extends Component {
   
   state = {
     number: 0,
-    dataisShown: false
+    dataisShown: false,
+    formHasBeenSubmitted: false
   }
 
 
@@ -25,35 +26,40 @@ incrementButton = () => {
     dataisShown: !prevState.dataisShown
   }))
 }
+  incrementButton = () => {
+    let isnumber = this.state.number;
+    isnumber++;
+    this.setState({
+      number: isnumber
+    })
+  }
+
+  onComplete = () =>{
+    this.setState({
+      formHasBeenSubmitted: true
+    })
+  }
+
+ 
 
   render() {
     return (
    
     <div className="container">
-    <h1 className="text-center margin-bottom">Mekelinin katu projekti</h1>
+    <h1 className="text-center margin-bottom">Mechelininkatu</h1>
     <div className="custom">
     <div class="control-group">
-          <div className="container">
-          <div className="row">  
-          <div className="col">        
-          <DataPiece2/>
-          </div>
-          <div className="col">        
-          <DataPiece3/>
-          </div>
-          <div className="col">        
-          <DataPiece4/>
-          </div>
-          <div className="col">        
-          <MapContainer/>
-          </div>
+    {!this.state.formHasBeenSubmitted ? (
+      <div>
+       <SmileyForm onComplete={this.onComplete}/>
+       </div>
+    ):( <Analysis/>)}
             </div>
             </div>
             </div>
-            </div>
-            </div>
+          
     );
- 
+
   }
  
 }
