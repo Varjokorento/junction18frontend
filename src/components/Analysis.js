@@ -120,7 +120,7 @@ getAverage3 = () => {
       {this.state.questionOneLoaded && this.state.questionTwoLoaded && this.state.questionThreeLoaded ? (
     <div>
         <p>Liikenteestä?</p>
-        <p>{this.state.averageQuestion1}</p>
+        <p>{this.state.averageQuestio1}</p>
         <p>Melusta?</p>
         <p>{this.state.averageQuestion2}</p>
         <p>Turvallisuudesta?</p>
