@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {GET_AVERAGE1, GET_AVERAGE2, GET_AVERAGE3} from '../env/amazonurls';
+import BarChart from './barChart';
+import MyBarChart from './MyBarChart';
 import axios from 'axios'
 
 export default class Analysis extends Component {
@@ -11,24 +13,25 @@ export default class Analysis extends Component {
         averageQuestion3: 0,
         questionOneLoaded: false,
         questionTwoLoaded: false,
-        questionThreeLoaded: false
+        questionThreeLoaded: false,
+        amountOfZerosInQuestion1: 0,
+        amountOfOnesInQuestion1: 0,
+        amountOfTwosInQuestion1: 0,
+        amountOfZerosInQuestion2: 0,
+        amountOfOnesInQuestion2: 0,
+        amountOfTwosInQuestion2: 0,
+        amountOfZerosInQuestion3: 0,
+        amountOfOnesInQuestion3: 0,
+        amountOfTwosInQuestion3: 0
+
     }
 
   componentDidMount() { 
-
     this.getAverage();
     this.getAverage2();
     this.getAverage3();
+    this.visualiseIt();
   }  
-
- /* fetchData = () => {
-    var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
-      try {
-          return axios.get('https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/getAverage1')
-      } catch(error) {
-          console.log(error);
-      }
-  }*/
 
 
 
@@ -42,6 +45,98 @@ export default class Analysis extends Component {
             })
           }
       )
+  }
+
+  mapTheValues = (data) => {
+      let zeroesInQuestion1 = 0;
+      let onesInQuestion1 = 0;
+      let twosInQuestion1 = 0;
+
+      let zeroesInQuestion2 = 0;
+      let onesInQuestion2 = 0;
+      let twosInQuestion2 = 0;
+
+      let zeroesInQuestion3 = 0;
+      let onesInQuestion3 = 0;
+      let twosInQuestion3 = 0;
+
+
+    for(var i =0; i < data.length; i++) {
+
+        switch(data[i].question1) {
+            case 0:
+                zeroesInQuestion1++;
+                break;
+            case 1:
+                onesInQuestion1++;
+                break;
+            default:
+                twosInQuestion1++;
+                break;
+
+        }
+    }
+
+    
+    for(var i =0; i < data.length; i++) {
+
+        switch(data[i].question2) {
+            case 0:
+                zeroesInQuestion2++;
+                break;
+            case 1:
+                onesInQuestion2++;
+                break;
+            default:
+                twosInQuestion2++;
+                break;
+
+        }
+    }
+
+    
+    for(var i =0; i < data.length; i++) {
+
+        switch(data[i].question3) {
+            case 0:
+                zeroesInQuestion3++;
+                break;
+            case 1:
+                onesInQuestion3++;
+                break;
+            default:
+                twosInQuestion3++;
+                break;
+
+        }
+    }
+        this.setState({
+            amountOfZerosInQuestion1: zeroesInQuestion1,
+            amountOfOnesInQuestion1: onesInQuestion1,
+            amountOfTwosInQuestion1: twosInQuestion1,
+
+            amountOfZerosInQuestion2: zeroesInQuestion2,
+            amountOfOnesInQuestion2: onesInQuestion2,
+            amountOfTwosInQuestion2: twosInQuestion2,
+
+            amountOfZerosInQuestion3: zeroesInQuestion3,
+            amountOfOnesInQuestion3: onesInQuestion3,
+            amountOfTwosInQuestion3: twosInQuestion3
+        })
+        
+    }
+  
+  visualiseIt = () => {
+      this.getReviews().then(res => {
+         this.mapTheValues(res.data);
+      })
+  }
+
+  getReviews = () => {
+      try {
+   return  axios.get("https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/getReview")
+    } catch(error) {
+    }
   }
 
     
@@ -100,19 +195,7 @@ getAverage3 = () => {
   }
 
   render() {
-    const analysisNode = this.state.customerReviews.map(function(data, idx) {
-        return ([
-            <div className="card">
-            <div className="card-body">
-            <h5 className="card-title">Arvostelu</h5>
-            <p className="card-text" key={idx}> {data.question1} </p>
-            <p className="card-text" key={idx}> {data.question2} </p>
-            <p className="card-text" key={idx}> {data.question3} </p>
-            <p className="card-text" key={idx}> {data.question4} </p>
-            </div>
-            </div>
-        ]);
-    });
+
 
     return (
       <div className="text-center">
@@ -125,6 +208,9 @@ getAverage3 = () => {
         <p>{this.state.averageQuestion2}</p>
         <p>Turvallisuudesta?</p>
         <p>{this.state.averageQuestion3}</p>
+        <div className="text-center">
+        <MyBarChart amountOfZeros={this.state.amountOfZerosInQuestion1} amountOfOnes={this.state.amountOfOnesInQuestion1} amountOfTwos={this.state.amountOfTwosInQuestion1}/>
+        </div>
         <h2>Kiitos palautteesta!</h2>
         <div className="text-center">
         <img className="staraImg" src="/starat.jpg" onClick={() => {this.getBack()}}></img>
