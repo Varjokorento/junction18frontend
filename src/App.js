@@ -8,6 +8,14 @@ import CurrentSituation from './components/currentSituation'
 
 import './App.css';
 
+
+const STYLE = {
+  wrapper: {
+      'word-wrap': 'break-word'
+  }
+ 
+};
+
 class App extends Component {
 
   
@@ -39,6 +47,8 @@ feedBack = () => {
   })
 }
 
+
+
   render() {
     return (
    
@@ -46,7 +56,7 @@ feedBack = () => {
     <div className="custom">
       
     <div className="text-center">
-      <h1 className="text-center margin-bottom">Mechelininkatu</h1>
+      <h1 className="text-center margin-bottom" style={STYLE.wordwrap} >Mechelininkatu</h1>
     {!this.state.feedBackClicked ? (
       <div>
         <h2 className="text-center margin-bottom margin-top">Projektin tila nyt</h2>
