@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {POST_REVIEW} from '../env/amazonurls'
+import {POST_REVIEW} from '../env2/amazonurls'
 import axios from 'axios';
 
 export default class SmileyForm extends Component {

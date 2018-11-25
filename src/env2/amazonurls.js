@@ -1,0 +1,5 @@
+export const GET_AVERAGE1 = "https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/getAverage1"
+export const GET_AVERAGE2 = "https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/getAverage2"
+export const GET_AVERAGE3 = "https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/getAverage3"
+export const GET_NEWS =  "https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/getNews"
+export const POST_REVIEW = "https://flwcpxjoxc.execute-api.us-east-1.amazonaws.com/dev/postReview"
