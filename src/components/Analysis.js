@@ -253,7 +253,7 @@ getAverage3 = () => {
         meluTeksti = <p>Asukkaiden mielestä meteli on kauhea!</p>
       }
     else if(this.state.averageQuestion3 >= 0.5 && this.state.averageQuestion3 < 1.1) {
-        meluTeksti = <p>Asukkaiden mielestä melu on siedettävä</p>
+        meluTeksti = <p>Asukkaiden mielestä melu on hieman häiritsevä</p>
     } else {
        meluTeksti =  <p>Asukkaiden mielestä melua ei ole juuri lainkaan</p>
     }
