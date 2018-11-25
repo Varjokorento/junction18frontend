@@ -35,12 +35,14 @@ h4 {
 .carImg {
   width: 40%;
   height: auto;
+  cursor: pointer;
 }
 
 
 img {
   width: 60%;
   height: auto;
+  cursor: pointer;
 }
 
 col {
@@ -52,16 +54,19 @@ col {
 .staraImg {
   width: 30%;
   height: auto;
+  cursor: pointer;
 }
 
 .staraImg2 {
   width: 20%;
   height: auto;
+  cursor: pointer;
 }
 
 .staraImg4 {
   width: 50%;
   height: auto;
+  cursor: pointer;
 }
 
 
@@ -70,6 +75,8 @@ h3 {
   font-size: 40px;
   font-weight: 800;
 }
+
+
 
 p {
   font-family: 'Bree Serif', serif;
