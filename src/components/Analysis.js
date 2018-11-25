@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {GET_AVERAGE1, GET_AVERAGE2, GET_AVERAGE3} from '../env/amazonurls';
+import {GET_AVERAGE1, GET_AVERAGE2, GET_AVERAGE3} from '../env2/amazonurls';
 import BarChart from './barChart';
 import MyBarChart from './MyBarChart';
 import NewBarChart from './NewBarChart';
