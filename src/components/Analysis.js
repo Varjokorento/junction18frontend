@@ -200,7 +200,7 @@ getAverage3 = () => {
     if(this.state.averageQuestio1 < 0.5) {
     liikenneFiilikset = <img className="carImg" src="/angryCar.jpg"></img>}
     else if(this.state.averageQuestio1 >= 0.5 && this.state.averageQuestio1 < 1.1) {
-        liikenneFiilikset = <img className="carImg2" src="/mediumCar.jpg"></img>
+        liikenneFiilikset = <img className="carImg2" src="/mediumcar.jpg"></img>
     } else {
         liikenneFiilikset = <img className="carImg2" src="/happyCar.jpg"></img>
     }
