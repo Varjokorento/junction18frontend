@@ -46,7 +46,7 @@ feedBack = () => {
     <div className="custom">
       
     <div className="text-center">
-      <h1 className="text-center margin-bottom">Mechelininkatu</h1>
+      <h2 className="text-center margin-bottom">Mechelininkatu</h2>
     {!this.state.feedBackClicked ? (
       <div>
         <h2 className="text-center margin-bottom margin-top">Projektin tila nyt</h2>
