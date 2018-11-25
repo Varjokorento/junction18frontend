@@ -55,7 +55,7 @@ export default class SmileyForm extends Component {
       <div class="text-center">
        {!this.state.question1answered ? (
            <div>
-           <h3>Liikenteestä?</h3>
+           <h3>Toimivatko liikennejärjestelyt?</h3>
           <div className="row">
           <div className="col">
           <img src="/angryface.jpg" onClick={() => {this.handleQuestion1(0)}}></img>
@@ -70,7 +70,7 @@ export default class SmileyForm extends Component {
        </div> ):(null)}
         {this.state.question1answered && !this.state.question2answered? (
             <div>
-             <h3>Melusta?</h3>
+             <h3>Häiritseekö melu?</h3>
          <div className="row">
          <div className="col">
           <img src="/angryface.jpg" onClick={() => {this.handleQuestion2(0)}}></img>
@@ -86,7 +86,7 @@ export default class SmileyForm extends Component {
     ):(null)}
      {this.state.question2answered && !this.state.question3answered? (
             <div>
-             <h3>Turvallisuudesta</h3>
+             <h3>Mitä mieltä olet ilmanlaadusta?</h3>
          <div className="row">
          <div className="col">
           <img src="/angryface.jpg" onClick={() => {this.handleQuestion3(0)}}></img>

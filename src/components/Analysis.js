@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {GET_AVERAGE1, GET_AVERAGE2, GET_AVERAGE3} from '../env/amazonurls';
 import BarChart from './barChart';
 import MyBarChart from './MyBarChart';
+import NewBarChart from './NewBarChart';
 import axios from 'axios'
 
 export default class Analysis extends Component {
@@ -197,19 +198,111 @@ getAverage3 = () => {
   render() {
 
 
+    let liikenneFiilikset;
+    if(this.state.averageQuestio1 < 0.5) {
+    liikenneFiilikset = <img className="carImg" src="/angryCar.jpg"></img>}
+    else if(this.state.averageQuestio1 >= 0.5 && this.state.averageQuestio1 < 1.1) {
+        liikenneFiilikset = <img className="carImg2" src="/mediumCar.jpg"></img>
+    } else {
+        liikenneFiilikset = <img className="carImg2" src="/happyCar.jpg"></img>
+    }
+
+    
+    let liikenneTeksti;
+    if(this.state.averageQuestio1 < 0.5) {
+        liikenneTeksti = <p>Asukkaiden mielestä liikenne on aivan tukossa!</p>
+      }
+    else if(this.state.averageQuestio1 >= 0.5 && this.state.averageQuestio1 < 1.1) {
+        liikenneTeksti = <p>Asukkaiden mielestä liikenne sujuu jotenkuten</p>
+    } else {
+        liikenneTeksti =  <p>Asukkaiden mielestä järjestelyt eivät haittaa liikennettä</p>
+    }
+
+
+    let polyFiilikset;
+    if(this.state.averageQuestion2 < 0.5) {
+    polyFiilikset = <img className="staraImg4" src="/unHappyPollution.jpg"></img>} 
+    else if(this.state.averageQuestion2 >= 0.5 && this.state.averageQuestion2 < 1.1) {
+        polyFiilikset = <img className="staraImg4" src="/mediumPollution.jpg"></img>
+    } else {
+        polyFiilikset = <img className="staraImg4" src="/happyPeople.jpg"></img>
+    }
+
+
+    
+    let polyTeksti;
+    if(this.state.averageQuestion2 < 0.5) {
+        polyTeksti = <p>Asukkaiden mielestä ilmanlaatu on surkea!</p>
+      }
+    else if(this.state.averageQuestion2 >= 0.5 && this.state.averageQuestion2 < 1.1) {
+        polyTeksti = <p>Asukkaiden mielestä ilmanlaatu on kohtalainen</p>
+    } else {
+       polyTeksti =  <p>Asukkaiden mielestä ilmanlaatu on hyvä</p>
+    }
+
+    
+    let meluFiilikset;
+    if(this.state.averageQuestion3 < 0.5) {
+    meluFiilikset = <img className="staraImg4" src="/unhappyNoise.jpg"></img>} 
+    else if(this.state.averageQuestion3 >= 0.5 && this.state.averageQuestion3 < 1.1) {
+        meluFiilikset = <img className="staraImg4" src="/mediumNoise.jpg"></img>
+    } else {
+        meluFiilikset = <img className="staraImg4" src="/happyPeople.jpg"></img>
+    }
+
+    let meluTeksti;
+    if(this.state.averageQuestion3 < 0.5) {
+        meluTeksti = <p>Asukkaiden mielestä meteli on kauhea!</p>
+      }
+    else if(this.state.averageQuestion3 >= 0.5 && this.state.averageQuestion3 < 1.1) {
+        meluTeksti = <p>Asukkaiden mielestä melu on siedettävä</p>
+    } else {
+       meluTeksti =  <p>Asukkaiden mielestä melua ei ole juuri lainkaan</p>
+    }
+
+
+    let averageQuestion =<h4> {Number((this.state.averageQuestio1).toFixed(1))} </h4>;
+    
+    let averageQuestion2 = <h4>{Number((this.state.averageQuestion2).toFixed(1))}</h4>;
+    
+    let averageQuestion3 =<h4> {Number((this.state.averageQuestion3).toFixed(1))}</h4>;
+
     return (
       <div className="text-center">
-         <h1 className="text-center">Analysis</h1>
+         <h1 className="text-center">Yleinen mielipide</h1>
       {this.state.questionOneLoaded && this.state.questionTwoLoaded && this.state.questionThreeLoaded ? (
     <div>
-        <p>Liikenteestä?</p>
-        <p>{this.state.averageQuestio1}</p>
-        <p>Melusta?</p>
-        <p>{this.state.averageQuestion2}</p>
-        <p>Turvallisuudesta?</p>
-        <p>{this.state.averageQuestion3}</p>
+        <h4>Liikenteestä?</h4>
+        {liikenneFiilikset}
+        {liikenneTeksti}
+        <p> Keskiarvo vastauksista (asteikko 0 -2) </p>
+        {averageQuestion}
+        <h4>Melusta?</h4>
+        {meluFiilikset}
+        {meluTeksti}
+        <p> Keskiarvo vastauksista (asteikko 0 -2) </p>
+        {averageQuestion2}
+        <h4>Ilmanlaadusta?</h4>
+        {polyFiilikset}
+        {polyTeksti}
+        <p> Keskiarvo vastauksista (asteikko 0 -2) </p>
+       {averageQuestion3}
         <div className="text-center">
-        <MyBarChart amountOfZeros={this.state.amountOfZerosInQuestion1} amountOfOnes={this.state.amountOfOnesInQuestion1} amountOfTwos={this.state.amountOfTwosInQuestion1}/>
+
+        <NewBarChart 
+        amountOfZeros={this.state.amountOfZerosInQuestion1} 
+        amountOfOnes={this.state.amountOfOnesInQuestion1} 
+        amountOfTwos={this.state.amountOfTwosInQuestion1}
+        
+        amountOfZeros2={this.state.amountOfZerosInQuestion2} 
+        amountOfOnes2={this.state.amountOfOnesInQuestion2} 
+        amountOfTwos2={this.state.amountOfTwosInQuestion2}
+
+        amountOfZeros3={this.state.amountOfZerosInQuestion3} 
+        amountOfOnes3={this.state.amountOfOnesInQuestion3} 
+        amountOfTwos3={this.state.amountOfTwosInQuestion3}
+        />
+
         </div>
         <h2>Kiitos palautteesta!</h2>
         <div className="text-center">

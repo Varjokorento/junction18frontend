@@ -25,9 +25,28 @@ h2 {
   font-weight: 800;
 }
 
+
+h4 {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.carImg {
+  width: 40%;
+  height: auto;
+}
+
+
 img {
   width: 60%;
   height: auto;
+}
+
+col {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 60px;
+  font-weight: 800;
 }
 
 .staraImg {
@@ -35,9 +54,20 @@ img {
   height: auto;
 }
 
+.staraImg2 {
+  width: 20%;
+  height: auto;
+}
+
+.staraImg4 {
+  widows: 50%;
+  height: auto;
+}
+
+
 h3 {
   font-family: 'Bree Serif', sans-serif;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 800;
 }
 
@@ -51,6 +81,21 @@ p {
   margin-top: 50px;
   background-color: white;
   border-radius: 10px;
+}
+
+.commentImage {
+  width: 30%;
+  height: auto;
+}
+
+.asphaltImg {
+  width: 30%;
+  height: auto;
+}
+
+.plantinImg {
+  width: 30%;
+  height: auto;
 }
 
 .loader {
