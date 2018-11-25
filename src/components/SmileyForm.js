@@ -70,7 +70,7 @@ export default class SmileyForm extends Component {
        </div> ):(null)}
         {this.state.question1answered && !this.state.question2answered? (
             <div>
-             <h3>Häiritseekö melu?</h3>
+             <h3>Onko melun tason sopiva?</h3>
          <div className="row">
          <div className="col">
           <img src="/angryface.jpg" onClick={() => {this.handleQuestion2(0)}}></img>
